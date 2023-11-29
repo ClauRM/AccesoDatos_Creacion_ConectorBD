@@ -1,6 +1,6 @@
 import subprocess
 
-class sgbd:
+class Sgbd:
     #constructor
     def __init__(self,basededatos):
         self.basededatos = basededatos
@@ -18,3 +18,5 @@ class sgbd:
             return("ok insert")
         else:
             return("ko insert")
+
+Conexion1 = Sgbd("miempresa")
