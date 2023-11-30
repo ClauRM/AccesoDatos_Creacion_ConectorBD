@@ -1,6 +1,14 @@
 from sgbd_conector import Sgbd #importar la clase Sgbd del fichero sgbd_conector.py
 
-Conexion1 = Sgbd("miempresa") #objeto conexion
-Conexion1.insert("clientes1","cliente6","Oscar Mayer")
+'''
+METODOS
+- insert(coleccion,documento,contenido)
+- select(coleccion,documento)
+- create_collection(coleccion)
+- where(coleccion,documento,busqueda)
+'''
 
-##min31
+Conexion1 = Sgbd("miempresa") #objeto conexion
+Conexion1.insert("clientes2","cliente23","Pato Donald")
+
+
