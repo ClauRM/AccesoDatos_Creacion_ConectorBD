@@ -3,7 +3,8 @@ import subprocess
 class Sgbd:
     
     #constructor
-    def __init__(self,basededatos):
+    def __init__(self,sgbd,basededatos):
+        self.sgbd = sgbd
         self.basededatos = basededatos
         
     #metodos
@@ -13,7 +14,7 @@ class Sgbd:
         self.documento = documento
         self.contenido = contenido
 
-        comando = '"C:\\Users\\claud\\OneDrive\\Documentos\\IMF\\2 DAM\\Acceso a datos\\Prácticas\\005-Creación de un conector de BD\\sgbd.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+' "'+self.contenido+'"'
+        comando = ''+self.sgbd+' '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+' "'+self.contenido+'"'
         resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
 
         if resultado.returncode == 0:
@@ -31,7 +32,7 @@ class Sgbd:
         self.coleccion = coleccion
         self.documento = documento
 
-        comando = '"C:\\Users\\claud\\OneDrive\\Documentos\\IMF\\2 DAM\\Acceso a datos\\Prácticas\\005-Creación de un conector de BD\\sgbd.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+''
+        comando = ''+self.sgbd+' '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+''
         resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
         print(resultado.stdout) #mostrar salida
         
@@ -44,7 +45,7 @@ class Sgbd:
         self.operacion = "create_collection"
         self.coleccion = coleccion
 
-        comando = '"C:\\Users\\claud\\OneDrive\\Documentos\\IMF\\2 DAM\\Acceso a datos\\Prácticas\\005-Creación de un conector de BD\\sgbd.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+''
+        comando = ''+self.sgbd+' '+self.operacion+' '+self.basededatos+' '+self.coleccion+''
         resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
         
         if resultado.returncode == 0:
@@ -58,7 +59,7 @@ class Sgbd:
         self.documento = documento
         self.busqueda = busqueda
 
-        comando = '"C:\\Users\\claud\\OneDrive\\Documentos\\IMF\\2 DAM\\Acceso a datos\\Prácticas\\005-Creación de un conector de BD\\sgbd.exe" '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+' "'+busqueda+'"'
+        comando = ''+self.sgbd+' '+self.operacion+' '+self.basededatos+' '+self.coleccion+' '+self.documento+' "'+busqueda+'"'
         resultado = subprocess.run(comando,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
         print(resultado.stdout) #mostrar salida
         
